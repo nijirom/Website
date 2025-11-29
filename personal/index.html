@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yekkno</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="image.jpg">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 15px;
+            line-height: 1.5;
+            color: #000;
+            background: #fff;
+            margin: 0;
+            padding: 10px 100px;
+        }
+        
+        .intro {
+            font-size: 16px;
+            font-weight: 400;
+            margin: 0 0 4px 0;
+        }
+
+        .content {
+            width: 55%;
+            max-width: 700px;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 600;
+            margin: 0 0 4px 0;
+        }
+        
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 24px 0 6px 0;
+        }
+        
+        p {
+            margin: 0 0 6px 0;
+        }
+        
+        a {
+            color: #000;
+            text-decoration: underline;
+        }
+        
+        ul {
+            margin: 6px 0 0 0;
+            padding-left: 20px;
+        }
+        
+        li {
+            margin: 0;
+        }
+        
+        section {
+            margin-bottom: 20px;
+        }
+        
+        .hero-image {
+            position: fixed;
+            right: .1px;
+            top: 0;
+            height: 100vh;
+            width: auto;
+            max-width: 45vw;
+            object-fit: cover;
+            object-position: left center;
+        }
+        
+        @media (max-width: 900px) {
+            .content {
+                width: 50%;
+                font-size: 17px;
+            }
+            
+            .hero-image {
+                max-width: 50vw;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-image {
+                display: none;
+            }
+            
+            .content {
+                width: 100%;
+                max-width: none;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="IMG_1377.jpg" alt="" class="hero-image">
+    
+    <div class="content">
+    
+        <p class="intro">Avid reader, hammock enthusiast, and fitness maxi. Left tail market participant.</p>
+
+        <section>
+            <h2>What am I looking for?</h2>
+            <p>Currently seeking an internship for trading and/or research. Also open to venture.</p>
+        </section>
+
+        <section>
+            <h2>Writing</h2>
+            <p>Investment research and whatever else I feel compelled to write about.</p>
+            <ul>
+                <li><a href="https://substack.com/home/post/p-179990061">Hyperliquid Thesis</a></li>
+                <li><a href="https://substack.com/home/post/p-179990035">Quick Fitness Guide</a></li>
+                <li><a href="https://substack.com/home/post/p-179989404">Sportsbook Arbitrage</a></li>
+            </ul>
+        </section>
+        
+        <section>
+            <h2>Personal Projects</h2>
+            <p>The code for this site, and some other stuff (primarily crypto).
+            <ul>
+                <li><a href="https://github.com/nijirom/Website">Website</a></li>
+                <li><a href="https://github.com/nijirom/funding">Funding Rates</a></li>
+                <li><a href="https://github.com/nijirom/pushoverAlert">Pushover Alert</a></li>
+            </ul>
+        </section>
+
+        <p><a href="cp0@gatech.edu">cp0@gatech.edu</a></p>
+    </div>
+</body>
+</html>
