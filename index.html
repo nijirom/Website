@@ -4,107 +4,175 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chris park</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="image.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/jpeg" href="hero.jpg">
     <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            font-size: 15px;
-            line-height: 1.5;
-            color: #000;
-            background: #fff;
-            margin: 0;
-            padding: 10px 100px;
+        :root {
+            --paper: #07080c;
+            --ink: #e9e7e1;
+            --muted: #8a8f9c;
+            --rule: #1d2029;
+            --accent: #67d3ec;
         }
-        
-        .intro {
-            font-size: 16px;
-            font-weight: 400;
-            margin: 0 0 4px 0;
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: 'Newsreader', Georgia, serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--ink);
+            background: var(--paper);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
         }
 
         .content {
-            width: 55%;
-            max-width: 700px;
-            padding: 40px 20px;
-            box-sizing: border-box;
-            margin: 0 auto;
+            width: 52%;
+            max-width: 620px;
+            min-height: 100vh;
+            padding: 96px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-        
-        h1 {
-            font-size: 32px;
-            font-weight: 600;
-            margin: 0 0 4px 0;
+
+        .name {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: 0 0 28px 0;
         }
-        
+
+        .intro {
+            font-size: 21px;
+            line-height: 1.5;
+            font-weight: 400;
+            margin: 0 0 8px 0;
+            max-width: 30ch;
+        }
+        .intro .hl { color: var(--accent); }
+
+        section { margin-top: 44px; }
+
         h2 {
-            font-size: 24px;
-            font-weight: 600;
-            margin: 24px 0 6px 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: 0 0 14px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--rule);
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
         }
-        
-        p {
-            margin: 0 0 6px 0;
+        h2::before {
+            content: attr(data-index);
+            color: var(--accent);
+            font-size: 11px;
         }
-        
+
+        ul { list-style: none; margin: 0; padding: 0; }
+        li { margin: 0; }
+
+        li a {
+            display: inline-block;
+            padding: 3px 0;
+        }
+
         a {
-            color: #000;
-            text-decoration: underline;
+            color: var(--ink);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.18s ease;
         }
-        
-        ul {
-            margin: 6px 0 0 0;
-            padding-left: 20px;
+        a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 1px;
+            width: 100%;
+            height: 1px;
+            background: currentColor;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.22s ease;
         }
-        
-        li {
-            margin: 0;
+        a:hover { color: var(--accent); }
+        a:hover::after { transform: scaleX(1); }
+
+        .contact {
+            margin-top: 56px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
         }
-        
-        section {
-            margin-bottom: 20px;
+        .contact span {
+            display: block;
+            font-size: 12px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 6px;
         }
-        
+
         .hero-image {
             position: fixed;
-            right: .1px;
+            right: 0;
             top: 0;
             height: 100vh;
             width: auto;
-            max-width: 45vw;
+            max-width: 46vw;
             object-fit: cover;
             object-position: left center;
         }
-        
-        @media (max-width: 900px) {
-            .content {
-                width: 50%;
-                font-size: 17px;
-            }
-            
-            .hero-image {
-                max-width: 50vw;
-            }
+       
+        .hero-image-wrap {
+            position: fixed;
+            right: 0;
+            top: 0;
+            height: 100vh;
+            width: 46vw;
+            pointer-events: none;
         }
-        
+        .hero-image-wrap::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, var(--paper) 0%, rgba(7,8,12,0) 30%);
+            z-index: 1;
+        }
+
+        @media (max-width: 900px) {
+            .content { width: 56%; padding: 80px 32px; }
+            .hero-image, .hero-image-wrap { max-width: 50vw; width: 50vw; }
+        }
+
         @media (max-width: 768px) {
-            .hero-image {
-                display: none;
-            }
-            
+            .hero-image, .hero-image-wrap { display: none; }
             .content {
                 width: 100%;
                 max-width: none;
-                font-size: 15px;
+                min-height: auto;
+                padding: 64px 24px;
+                justify-content: flex-start;
             }
+            body { font-size: 17px; }
         }
     </style>
 </head>
 <body>
-    
+
     <div class="content">
-    
-        <p class="intro">Hi, my name is Chris, and I like markets, reading, poker, and pretty much all sports. I study industrial and systems engineering & math at Georgia Tech.</p>
+
+        <p class="name">Chris Park</p>
+
+        <p class="intro">I like markets, reading, poker, and pretty much all sports. I'm studying industrial &amp; systems engineering and math at Georgia Tech.</p>
 
 
         <section>
@@ -132,13 +200,17 @@
                 
             </ul>
         </section>
-    
-       <h2>Contact:</h2>
-        <p><a href="cp0@gatech.edu">cp0@gatech.edu</a></p>
+
+        <div class="contact">
+            <span>Contact</span>
+            <a href="mailto:cp0@gatech.edu">cp0@gatech.edu</a>
+        </div>
     </div>
+
+    <img class="hero-image" src="hero.jpg" alt="Chris Park">
+    <div class="hero-image-wrap"></div>
 </body>
 </html>
-
 
 
 
